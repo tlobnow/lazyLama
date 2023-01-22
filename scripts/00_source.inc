@@ -1,55 +1,26 @@
-	# see NOTES below for explanation. Change to MODEL to 'yes' to start pipeline components
-MODEL=yes
+OUT_NAME=IL1R_IL1AP_MYD88_x6
+        # Specify the name you want for your output folder
 
-#FOLDER=GFP
-#FOLDER=MYD88-DD
-#FOLDER=MYD88
-#FOLDER=TIR_LIB
-FOLDER=BDLD
-#FOLDER=IL1B
-	# Specify the folder where your fasta files are located.
-	# This folder will be used to create a list of the fasta base names, for which models will be run.
-	# Once created, you can adapt the list to batches if necessary.
+STOICHIOMETRY=IL1R:1/IL1AP:1/MYD88:6
+        # See info below
 
-N=10
-	# Specify the number of monomers in run your run: e.g. 6 would create a homohexamer
+LOC_SCRIPTS=~/lazyLama/scripts                    # Specify where the scripts   are located
+LOC_FASTA=~/lazyLama/fasta_files                  # Specify where fasta_files   are located
+LOC_FEATURES=~/lazyLama/feature_files             # Specify where feature_files are located
+LOC_OUT=~/lazyLama/output_files/$OUT_NAME	  # Specify where your output   is  located
+LOC_FEA_GEN=~/lazyLama/scripts/feaGen
+mkdir -p $LOC_SCRIPTS/myRuns
 
-
-LOC_SCRIPTS=~/fluffyAlpaca/scripts           	  # Specify where the scripts   are located
-LOC_LISTS=~/fluffyAlpaca/scripts/lists       	  # Specify where your lists    are located
-LOC_FASTA=~/fluffyAlpaca/fasta_files		  # Specify where fasta_files   are located
-LOC_FEATURES=~/fluffyAlpaca/feature_files/${FILE} # Specify where feature_files are located
-
-STOICH=simple
-#STOICH=advanced
-	# See NOTES below for explanation.
-
-if   [ $STOICH = 'simple' ]; then
-	STOICHIOMETRY=${FILE}:${N}
-	LOC_OUT=~/fluffyAlpaca/output_files/${FILE}_x${N}
-
-elif [ $STOICH = 'advanced' ]; then
-	STOICHIOMETRY=IL1R:1/IL1AP:1/${FILE}:${N}
-	OUT_NAME=IL1R_x1+IL1AP_x1_${FILE}_x${N}
-	#LOC_OUT=~/fluffyAlpaca/output_files/${FILE}_COMPLEX_x${N}
-	LOC_OUT=~/fluffyAlpaca/output_files/$OUT_NAME
-else 
-	echo "Please specify your stoichiometry of choice."
-	echo "You can unhash the advanced version if necessary."
-	echo "Make sure the output folder location matches the advanced setup."
-fi
-
-
-
-### NOTES ##########################################################################################################################################
-
+##########################################################################################################################
+##########################################################################################################################
+##########################################################################################################################
 
 # A WORD ON THE MODEL SCRIPT
 
 	# If MODEL is set to "yes", the pipeline will execute MODEL.sh, so you will run some or all (depending on status):
-	# (1) run the MSA for each file 
+	# (1) prepare feature files for all fasta files
 	#	-> output in feature_files (features.pkl)
-	# (2) run the modeling (5 neural network models) 
+	# (2) run the predictions (5 neural network models) 
 	#	-> output in output_files (model_*.pdb, .json)
 	# (3) run the relaxation of each model (minimizes clashes etc) 
 	#	-> output in output_files (relaxed_model_*.pdb)

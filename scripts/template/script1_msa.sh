@@ -20,7 +20,6 @@
 #SBATCH --mail-user=$USER@mpiib-berlin.mpg.de
 #SBATCH --time=06:00:00
 
-
 # AlphaFold2 template submit script (single sequence case) for RAVEN @ MPCDF,
 # please create a local copy and customize to your use case.
 #
@@ -33,12 +32,8 @@ module purge
 module load alphafold/2.2.0
 module load cuda/11.4
 
-
-
-
 # include parameters common to the CPU and the GPU steps
 source 01_user_parameters.inc
-
 
 # check if the directories set by the alphafold module do exist
 if [ ! -d ${ALPHAFOLD_DATA} ]; then

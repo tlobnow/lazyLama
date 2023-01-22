@@ -1,0 +1,74 @@
+/bin/sh: /mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/lib/libtinfo.so.6: no version information available (required by /lib64/libreadline.so.7)
+I0122 15:12:30.417635 23204397045568 templates.py:857] Using precomputed obsolete pdbs /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/pdb_mmcif/obsolete.dat.
+I0122 15:12:30.583913 23204397045568 tpu_client.py:54] Starting the local TPU driver.
+I0122 15:12:30.584229 23204397045568 xla_bridge.py:212] Unable to initialize backend 'tpu_driver': Not found: Unable to find driver in registry given worker: local://
+I0122 15:12:30.911659 23204397045568 xla_bridge.py:212] Unable to initialize backend 'tpu': Invalid argument: TpuPlatform is not available.
+I0122 15:12:37.302625 23204397045568 run_alphafold.py:384] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I0122 15:12:37.302784 23204397045568 run_alphafold.py:400] Using random seed 1258387951243068824 for the data pipeline
+I0122 15:12:37.302963 23204397045568 run_alphafold.py:165] Predicting IL1AP
+I0122 15:12:37.306484 23204397045568 jackhmmer.py:139] Launching subprocess "/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin/jackhmmer -o /dev/null -A /dev/shm/tmpzf0h6yyu/output.sto --noali --F1 0.0005 --F2 5e-05 --F3 5e-07 --incE 0.0001 -E 0.0001 --cpu 54 -N 1 /u/flobnow/lazyLama/fasta_files/IL1AP.fasta /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/uniref90/uniref90.fasta"
+I0122 15:12:37.375669 23204397045568 utils.py:36] Started Jackhmmer (uniref90.fasta) query
+I0122 15:17:51.499003 23204397045568 utils.py:40] Finished Jackhmmer (uniref90.fasta) query in 314.123 seconds
+I0122 15:17:51.896589 23204397045568 jackhmmer.py:139] Launching subprocess "/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin/jackhmmer -o /dev/null -A /dev/shm/tmpk5jc_0g4/output.sto --noali --F1 0.0005 --F2 5e-05 --F3 5e-07 --incE 0.0001 -E 0.0001 --cpu 54 -N 1 /u/flobnow/lazyLama/fasta_files/IL1AP.fasta /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/mgnify/mgy_clusters_2018_12.fa"
+I0122 15:17:51.939987 23204397045568 utils.py:36] Started Jackhmmer (mgy_clusters_2018_12.fa) query
+I0122 15:23:52.285171 23204397045568 utils.py:40] Finished Jackhmmer (mgy_clusters_2018_12.fa) query in 360.345 seconds
+I0122 15:23:55.814978 23204397045568 hhsearch.py:85] Launching subprocess "/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin/hhsearch -i /dev/shm/tmp1mo5p687/query.a3m -o /dev/shm/tmp1mo5p687/output.hhr -maxseq 1000000 -d /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/pdb70/pdb70"
+I0122 15:23:55.863134 23204397045568 utils.py:36] Started HHsearch query
+I0122 15:24:45.953820 23204397045568 utils.py:40] Finished HHsearch query in 50.090 seconds
+I0122 15:24:48.316442 23204397045568 hhblits.py:134] Launching subprocess "/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin/hhblits -i /u/flobnow/lazyLama/fasta_files/IL1AP.fasta -cpu 54 -oa3m /dev/shm/tmpfbdgigtc/output.a3m -o /dev/null -n 3 -e 0.001 -maxseq 1000000 -realign_max 100000 -maxfilt 100000 -min_prefilter_hits 1000 -d /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt -d /raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08"
+I0122 15:24:48.365262 23204397045568 utils.py:36] Started HHblits query
+I0122 15:53:21.186569 23204397045568 utils.py:40] Finished HHblits query in 1712.821 seconds
+I0122 15:53:21.500280 23204397045568 templates.py:878] Searching for template for: MGLLWYLMSLSFYGILQSHASERCDDWGLDTMRQIQVFEDEPARIKCPLFEHFLKYNYSTAHSSGLTLIWYWTRQDRDLEEPINFRLPENRISKEKDVLWFRPTLLNDTGNYTCMLRNTTYCSKVAFPLEVVQKDSCFNSAMRFPVHKMYIEHGIHKITCPNVDGYFPSSVKPSVTWYKGCTEIVDFHNVLPEGMNLSFFIPLVSNNGNYTCVVTYPENGRLFHLTRTVTVKVVGSPKDALPPQIYSPNDRVVYEKEPGEELVIPCKVYFSFIMDSHNEVWWTIDGKKPDDVTVDITINESVSYSSTEDETRTQILSIKKVTPEDLRRNYVCHARNTKGEAEQAAKVKQKVIPPRYTVELACGFGATVFLVVVLIVVYHVYWLEMVLFYRAHFGTDETILDGKEYDIYVSYARNVEEEEFVLLTLRGVLENEFGYKLCIFDRDSLPGGIVTDETLSFIQKSRRLLVVLSPNYVLQGTQALLELKAGLENMASRGNINVILVQYKAVKDMKVKELKRAKTVLTVIKWKGEKSKYPQGRFWKQLQVAMPVKKSPRWSSNDKQGLSYSSLKNV
+I0122 15:53:22.013691 23204397045568 templates.py:268] Found an exact template match 3o4o_B.
+I0122 15:53:23.034652 23204397045568 templates.py:268] Found an exact template match 5vi4_C.
+I0122 15:53:23.301745 23204397045568 templates.py:268] Found an exact template match 5wy8_B.
+I0122 15:53:23.667607 23204397045568 templates.py:268] Found an exact template match 5y32_B.
+I0122 15:53:23.684078 23204397045568 templates.py:268] Found an exact template match 5vi4_E.
+I0122 15:53:23.698076 23204397045568 templates.py:268] Found an exact template match 3o4o_C.
+I0122 15:53:23.930621 23204397045568 templates.py:268] Found an exact template match 3oq3_B.
+I0122 15:53:24.649092 23204397045568 templates.py:268] Found an exact template match 4r6u_C.
+I0122 15:53:25.132480 23204397045568 templates.py:268] Found an exact template match 3wo4_B.
+I0122 15:53:25.548564 23204397045568 templates.py:268] Found an exact template match 5whz_L.
+I0122 15:53:27.569772 23204397045568 templates.py:268] Found an exact template match 3wo3_F.
+I0122 15:53:27.924413 23204397045568 templates.py:268] Found an exact template match 3b43_A.
+I0122 15:53:27.950990 23204397045568 templates.py:268] Found an exact template match 3b43_A.
+I0122 15:53:27.977541 23204397045568 templates.py:268] Found an exact template match 3b43_A.
+I0122 15:53:28.134000 23204397045568 templates.py:268] Found an exact template match 1g0y_R.
+I0122 15:53:28.537631 23204397045568 templates.py:268] Found an exact template match 5lfr_B.
+I0122 15:53:29.282666 23204397045568 templates.py:268] Found an exact template match 5lfv_B.
+I0122 15:53:29.298558 23204397045568 templates.py:268] Found an exact template match 3b43_A.
+I0122 15:53:29.588453 23204397045568 templates.py:268] Found an exact template match 4kc3_B.
+I0122 15:53:29.915561 23204397045568 templates.py:268] Found an exact template match 4gaf_B.
+I0122 15:53:31.356112 23204397045568 pipeline.py:234] Uniref90 MSA size: 7105 sequences.
+I0122 15:53:31.356520 23204397045568 pipeline.py:235] BFD MSA size: 4858 sequences.
+I0122 15:53:31.356568 23204397045568 pipeline.py:236] MGnify MSA size: 68 sequences.
+I0122 15:53:31.356610 23204397045568 pipeline.py:238] Final (deduplicated) MSA size: 11863 sequences.
+I0122 15:53:31.357123 23204397045568 pipeline.py:241] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 20.
+                                  
+================================= 
+Global information about the job: 
+================================= 
+  
+Job owner: flobnow(42847)
+Job name:  AF2-MSA
+Node list: ravg1050
+Job start: Sun Jan 22 15:12:10 CET 2023
+Job end:   Sun Jan 22 15:53:32 CET 2023
+Work dir:  /raven/u/flobnow/lazyLama/scripts/feaGen/IL1AP
+Command:   /raven/u/flobnow/lazyLama/scripts/feaGen/IL1AP/script1_msa.sh
+  
+  
+  
+==========================================================================================
+Information on jobsteps (Note: MaxRSS/AveRSS is the maximum/average over all 
+tasks of the per-task memory high-water marks; cf. "man sacct"): 
+==========================================================================================
+  
+JobID            JobName NNodes NTasks  NCPUS        0.00M        0.00M    Elapsed ExitCode
+------------- ---------- ------ ------ ------ ------------ ------------ ---------- --------
+3984117          AF2-MSA      1           108                             00:41:22      0:0
+3984117.0        python3      1      1    108    89740.40M    89740.40M   00:41:17      0:0
+  
+Maximum memory per node: 94.099626 GB (defined as MaxRSS*Ntasks/NNodes)
+CPU utilization: 15.8 %
+  

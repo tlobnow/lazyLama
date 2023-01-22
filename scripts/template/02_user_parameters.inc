@@ -1,5 +1,6 @@
 ## Set user parameters for alphafold, common to MSA and prediction jobs
 
+source ~/lazyLama/scripts/00_source.inc
 source 00_user_parameters.inc
 FILE=$FILE
 
@@ -7,16 +8,16 @@ FILE=$FILE
 PYTHON_PATH=/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin
 AF_DIR=~/af2complex/src
 DATA_DIR=/raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data/
-TARGET_LST_FILE=~/fluffyAlpaca/scripts/myRuns/$FILE/target.lst	# a list of target with stoichiometry
-FEA_DIR=~/fluffyAlpaca/feature_files     			# input feature pickle files of individual monomers under $INP_DIR/$monomer
-OUT_DIR=~/fluffyAlpaca/output_files      			# model output files will be under $out_dir/$target
+TARGET_LST_FILE=$LOC_SCRIPTS/myRuns/$FILE/target.lst	# a list of target with stoichiometry
+FEA_DIR=$LOC_FEATURES     					# input feature pickle files of individual monomers under $INP_DIR/$monomer
+OUT_DIR=~/lazyLama/output_files      				# model output files will be under $out_dir/$target
 
 ## MSA SCRIPT PATHS ####################################################
 MAX_TEMPLATE_DATE=2020-05-15                                    # CASP14 starting date, for a very specific example case from the publication paper
 KALIGN=/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0/bin/kalign
 DOWNLOAD_DIR=/raven/ri/public_sequence_data/alphafold2/git-v2.2.0/data
 TOOL_DIR=/mpcdf/soft/SLE_15/packages/x86_64/alphafold/2.2.0
-FASTA_PATH=~/fluffyAlpaca/fasta_files/$FILE.fasta
+FASTA_PATH=$LOC_FASTA/$FILE.fasta
 DB_PRESET='reduced_dbs'
 uniref90_database_path=${DOWNLOAD_DIR}/uniref90/uniref90.fasta                                  # Uniref90 database for use by JackHMMER
 mgnify_database_path=${DOWNLOAD_DIR}/mgnify/mgy_clusters_2018_12.fa                             # MGnify database for use by JackHMMER
