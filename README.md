@@ -13,13 +13,9 @@ git clone https://github.com/tlobnow/fluffyAlpaca.git
 #### 2.1. Miniconda
 Do you have Miniconda installed? If not or you're not sure, please copy and execute the following:
 We will move the miniconda setup script into your home directory and will install it there.
+Download the script from "https://docs.conda.io/en/latest/miniconda.html" and upload it in your home directory.
+Execute the script in your home directory with "./Miniconda_vX_XXX_XXX.sh"
 This may take a little while.. (once installed, you can move/remove the script as you like)
-
-```
-cd
-mv ~/lazyLama/Miniconda3-py39_22.11.1-1-Linux-x86_64.sh ./
-./Miniconda3-py39_22.11.1-1-Linux-x86_64.sh
-```
 
 #### 2.2. Let's set up the environment for AF2Complex
 
